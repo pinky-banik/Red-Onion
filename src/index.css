@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +13,8 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+  }
+
+  .btn-red{
+    @apply text-sm bg-red-500 py-3 px-6 rounded-full text-white ring-red-300 focus:ring-4 transition duration-300 hover:scale-105 transform
+  }
