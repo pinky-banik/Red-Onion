@@ -5,8 +5,11 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'back-image': "url('https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg')",
-      }
+        'back-image': "url('./images/banner.png')",
+      },
+      fontFamily: {
+        'poppins': ['Poppins'],
+     }
     },
   },
   plugins: [],
