@@ -3,7 +3,7 @@ import React from 'react';
 const Foods = () => {
     return (
         <div>
-            {/* abcddfdddfgfgytyty */}
+            {/* abcddfdddfgfgytyt5435345345ygfdg */}
         </div>
     );
 };
