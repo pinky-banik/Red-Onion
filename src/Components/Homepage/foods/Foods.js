@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import FoodItem from './FoodItem';
 import Skeleton from './Skeleton';
+import Slider from './slider/slider';
 
 const Foods = () => {
         const [foods, setFoods] = useState([]);

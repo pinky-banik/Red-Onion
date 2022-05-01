@@ -4,6 +4,7 @@ import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { BsCart2 } from 'react-icons/bs';
 import Back from '../../../Routes/Back/Back';
 import swal from 'sweetalert';
+import Slider from './slider/slider';
 
 const FoodDetails = () => {
     const [quantity,setQuantity] = useState(1);
@@ -66,7 +67,7 @@ const FoodDetails = () => {
                                     <span>{disabled ? "Added" : "Add to Cart"}</span>
                                 </button>
                             </div>
-
+                            <Slider></Slider>
                         </div>
                         {/* right side  */}
                         <div className="order-1 md:order-2 lg:order-2">

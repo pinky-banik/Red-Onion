@@ -6,11 +6,13 @@ import Navbar from './Components/Shared/Navbar/Navbar';
 import Register from './Components/Login/Register/Register';
 import Error from './Components/Shared/Error/Error';
 import FoodDetails from './Components/Homepage/foods/FoodDetails';
+import OrderProvider from './Context/OrderProvider';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      <OrderProvider>
       <Navbar></Navbar>
       <Routes>
         <Route path='/' element={<Home/>}/>
@@ -19,6 +21,7 @@ function App() {
         <Route path='/foods/:title' element={<FoodDetails/>} />
         <Route path="*" element={<Error/>}/>
       </Routes>
+      </OrderProvider>
       </BrowserRouter>
     </div>
   );
