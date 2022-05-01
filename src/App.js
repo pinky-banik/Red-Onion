@@ -7,6 +7,7 @@ import Register from './Components/Login/Register/Register';
 import Error from './Components/Shared/Error/Error';
 import FoodDetails from './Components/Homepage/foods/FoodDetails';
 import OrderProvider from './Context/OrderProvider';
+import OrderSuccessful from './Components/Homepage/foods/PlaceOrder.js/OrderSuccessful';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<Register/>}/>
         <Route path='/foods/:title' element={<FoodDetails/>} />
+        <Route path='/order-successful' element={<OrderSuccessful/>}></Route>
         <Route path="*" element={<Error/>}/>
       </Routes>
       </OrderProvider>

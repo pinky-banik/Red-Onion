@@ -26,7 +26,7 @@ const Slider = () => {
     const [foods] = useFetch()
     const navigate = useNavigate();
     return (
-        <div className='p-10'>
+        <div className='p-10 '>
             <Swiper slidesPerView={3} spaceBetween={30} keyboard={{
             "enabled": true
         }} pagination={{
