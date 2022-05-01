@@ -25,7 +25,7 @@ const Foods = () => {
 
         //food menu tab
         const handleMenuTabs = (type)=>{
-            setMenuTab(type);
+            setMenuTab(type)
         }
 
     return (
@@ -38,11 +38,11 @@ const Foods = () => {
             </div>
             {/* all foods */}
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12'>
-                {
-                    foods.map(item=>(
-                        <FoodItem key={item.id} {...item}/>
-                    ))
-                }
+            {
+                foods.filter((item) => menuTab === item.type).map(item => (
+                    loading ? <Skeleton key={item.id} /> : <FoodItem key={item.id} {...item} />
+                ))
+            }
             </div>
         </section>
     );
