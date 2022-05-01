@@ -22,7 +22,7 @@ const FoodDetails = () => {
 
 
     return (
-        <main className='max-w-screen-xl mx-auto px-6 my-16'>
+        <main className='max-w-screen-xl mx-auto px-6 my-16 py-16'>
             <Back/>
             {foods?.filter(item => item.title === title)?.map((food) => (
                 <div className="flex flex-col justify-center items-center h-screen">
