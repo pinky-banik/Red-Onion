@@ -3,7 +3,7 @@ import logo from "../../../images/logo.png";
 const Footer = () => {
     return (
         <div className='bg-gray-900 text-gray-300 px-6 py-14'>
-            <section className='footer mx-14'>
+            <section className='footer mx-14 lg:px-32'>
                 <div className='main-footer sm:block md:flex justify-between '>
                 <div className='w-2/4'>
                     <img className='h-10' src={logo} alt="" />
@@ -27,7 +27,7 @@ const Footer = () => {
                     </div>
                 </div>
                 </div>
-                <div className='  mt-14 justify-between xs:flex-col-reverse md:flex-row'>
+                <div className='xs:block sm:flex mt-14 justify-between'>
                     <div className='w-1/3'>
                         <h1 className='text-gray-500'>Developed by 💗 Pinky Banik</h1>
                     </div>
