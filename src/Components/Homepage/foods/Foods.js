@@ -1,10 +1,50 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import FoodItem from './FoodItem';
+import Skeleton from './Skeleton';
 
 const Foods = () => {
+        const [foods, setFoods] = useState([]);
+        const [menuTab, setMenuTab] = useState('Breakfast')
+        const [loading, setLoading] = useState(false)
+
+      
+        //fetching food data
+        useEffect(() => {
+            fetch('/foods.json')
+                .then(res => res.json())
+                .then(data => setFoods(data))
+        }, [foods]);
+    
+        //loading
+        useEffect(()=>{
+            setLoading(true)
+            setTimeout(()=>{
+                setLoading(false)
+            },1000)
+        },[])
+
+        //food menu tab
+        const handleMenuTabs = (type)=>{
+            setMenuTab(type);
+        }
+
     return (
-        <div>
-            <h1>THis is red onion working websites</h1>
-        </div>
+        <section className='my-12 max-w-screen-xl mx-auto px-6'>
+            {/* food menu tab */}
+            <div className="flex items-center justify-center space-x-6">
+                <p className={menuTab === 'Breakfast' ? "active_menu_tab poppins bg-[#f91944]" : "menu_tab poppins"} onClick={() => handleMenuTabs('Breakfast')}>Breakfast</p>
+                <p className={menuTab === 'Lunch' ? "active_menu_tab poppins bg-[#f91944]" : "menu_tab poppins"} onClick={() => handleMenuTabs('Lunch')}>Lunch</p>
+                <p className={menuTab === 'Dinner' ? "active_menu_tab poppins bg-[#f91944]" : "menu_tab poppins"} onClick={() => handleMenuTabs('Dinner')}>Dinner</p>
+            </div>
+            {/* all foods */}
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12'>
+                {
+                    foods.map(item=>(
+                        <FoodItem key={item.id} {...item}/>
+                    ))
+                }
+            </div>
+        </section>
     );
 };
 
