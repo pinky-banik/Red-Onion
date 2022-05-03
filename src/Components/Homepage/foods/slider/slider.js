@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import Swiper core and required modules
 import SwiperCore, {
@@ -23,14 +23,14 @@ SwiperCore.use([Keyboard, Pagination, Navigation]);
 
 
 const Slider = () => {
-    const [foods] = useFetch()
+    const [foods] = useFetch();
     const navigate = useNavigate();
     return (
         <div className='p-10 '>
             <Swiper slidesPerView={3} spaceBetween={30} keyboard={{
             "enabled": true
         }} pagination={{
-            "clickable": true
+            "clickable": true,
         }} navigation={true} className="mySwiper">
             {foods.map(item => (
                 <SwiperSlide>
@@ -43,4 +43,4 @@ navigate(`/foods/${item.title}`)} }/>
     )
 }
 
-export default Slider
+export default Slider;

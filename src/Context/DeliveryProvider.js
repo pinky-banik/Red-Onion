@@ -1,16 +1,14 @@
-import React, { Children, createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
+const DeliveryContext = createContext();
 
- const DeliveryContext = createContext();
-
-export const useDelivery =() => {
+export const useDelivery = () => {
     return useContext(DeliveryContext);
 }
-
-const DeliveryProvider = () => {
-    const [input,setInput] = useState({})
-    const [disabled,setDisabled] = useState(true);
-
+const DeliveryProvider = ({children}) => {
+    // const [quantity, setQuantity] = useState(1)
+    const [input , setInput] = useState({})
+    const [disabled , setDisabled] = useState(true)
 
     const value ={
         input,
@@ -20,9 +18,9 @@ const DeliveryProvider = () => {
     }
     return (
         <DeliveryContext.Provider value={value}>
-            {Children}
+            {children}
         </DeliveryContext.Provider>
-    );
-};
+    )
+}
 
 export default DeliveryProvider;

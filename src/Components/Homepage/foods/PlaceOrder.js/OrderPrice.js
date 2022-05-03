@@ -11,7 +11,7 @@ const OrderPrice = () => {
     const subTotal = parseFloat(allPrice.toFixed(2));
     const tax = parseFloat((allPrice%5).toFixed(2));
     const deliveryFee = parseFloat((allPrice%20).toFixed(2));
-    const total = parseFloat((subTotal+tax+deliveryFee0).toFixed(2))
+    const total = parseFloat((subTotal+tax+deliveryFee).toFixed(2))
     return (
         <div className="flex flex-col space-y-3 my-4">
             <div className="flex items-center">

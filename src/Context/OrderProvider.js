@@ -2,30 +2,33 @@ import React, { createContext, useContext, useState } from 'react';
 
 export const OrderContext = createContext();
 
-export const useOrder = () =>{
-    return useContext(OrderContext);
+export const useOrder = () => {
+    return useContext(OrderContext)
 }
-const OrderProvider = ({children}) => {
-    const[order,setOrder] = useState([]);
+const OrderProvider = ({ children }) => {
+    const [order, setOrder] = useState([]);
 
-    //add order function
-    const handleOrder = (food) =>{
-        setOrder((preValue)=>{
+    // add order function 
+    const handleOrder = (food) => {
+        setOrder((prevValue) => {
             return [
-                ...preValue,
-                food,
+                ...prevValue,
+                food, 
             ]
         })
     }
-    //remove order from cart
-    const removeOrder = (id) =>{
-        setOrder((prev)=>{
-            return prev.filter(item =>{
+
+    //remove order from cart 
+    const removeOrder = (id) => {
+        setOrder((prev) => {
+            return prev.filter(item => {
                 return item.id !== id
             })
         })
     }
-    const value ={
+
+
+    const value = {
         setOrder,
         order,
         handleOrder,
@@ -35,7 +38,7 @@ const OrderProvider = ({children}) => {
         <OrderContext.Provider value={value}>
             {children}
         </OrderContext.Provider>
-    );
-};
+    )
+}
 
 export default OrderProvider;
