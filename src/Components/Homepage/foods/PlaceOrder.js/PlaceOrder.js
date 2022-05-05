@@ -67,7 +67,7 @@ const PlaceOrder = () => {
                     <div className="pt-24">
                         <h1 className="text-center text-5xl text-primary poppins">No Order has added!!</h1>
                     </div>
-                    // xgxgxgffgjfgjfgjfj
+                    // xgxgxgffgjfgjfgjfjrgfgrgrfg
                 )
                 }
             </div>
