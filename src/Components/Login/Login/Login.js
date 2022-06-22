@@ -1,8 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from "../../../images/logo2.png" ;
 import {FcGoogle} from 'react-icons/fc';
+import TextField from './../../Shared/Form/Textfield';
+import useAuth from './../../../Hooks/useAuth';
 const Login = () => {
+    const [userInput, setUserInput] = useState({
+        email: '',
+        password: '',
+    })
+    const { signInUser } = useAuth();
+
+        // handle change
+    const handleChange = (e) => {
+        const { value, name } = e.target;
+        setUserInput(prev => {
+            return {
+                ...prev,
+                [name]: value
+            }
+        })
+
+    }
+    //handle submit form 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        await signInUser(userInput.email, userInput.password)
+    }
+
+    //form inputs
+    const Inputs = [
+        { id: 1, type: "email", placeholder: "Email", value: `${userInput.email}`, name: 'email' },
+        { id: 2, type: "password", placeholder: "Password", value: `${userInput.password}`, name: 'password' },
+    ]
     return (
         <div>
             <section className='bg-back-image h-screen  bg-cover bg-center bg-[#FCF4E0] '>
@@ -11,8 +41,16 @@ const Login = () => {
                     <div className='flex justify-center'>
                         <form className='bg-white w-96 mt-6 p-4 rounded-lg shadow-lg'>
                             <div  className='flex flex-col space-y-6'>
-                                <input placeholder='Email' className='w-full px-4 py-3 rounded-lg ring-red-200 focus:ring-4 focus:outline-none transition duration-300 border border-gray-300 focus:shadow-xl'></input>
-                                <input placeholder='Password' className='w-full px-4 py-3 rounded-lg ring-red-200 focus:ring-4 focus:outline-none transition duration-300 border border-gray-300 focus:shadow-xl'></input>
+                            {Inputs.map(input => (
+                            <TextField
+                                key={input.id}
+                                type={input.type}
+                                placeholder={input.placeholder}
+                                value={input.value}
+                                name={input.name}
+                                onChange={handleChange}
+                            />
+                        ))}
                             </div>
                             <button className="w-full py-3 bg-[#f91944] text-white ring-red-400 focus:outline-none focus:ring-4 mt-6 rounded-lg transition duration-300 poppins ">Sign in</button>
                             <Link to="/signup">
@@ -25,7 +63,7 @@ const Login = () => {
                                 <span className="poppins">Sign In With Google</span>
                             </div>
                             </div>
-
+                            {/* most delayed project */}
                         </form>
                     </div>
                 </div>
