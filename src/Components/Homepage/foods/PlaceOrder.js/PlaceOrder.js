@@ -1,20 +1,24 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import swal from 'sweetalert';
 import { useDelivery } from '../../../../Context/DeliveryProvider';
 import { useOrder } from '../../../../Context/OrderProvider';
 import Back from '../../../../Routes/Back/Back';
-import OrderPrice from './OrderPrice';
-import { Navigate } from 'react-router-dom';
 import DeliveryForm from './DeliveryForm';
 import OrderCard from './OrderCard';
-import swal from 'sweetalert';
+import OrderPrice from './OrderPrice';
 
-const PlaceOrder = () => {
-    const {order,setOrder} = useOrder();
+const PlaceOrderScreen = () => {
+    const { order, setOrder } = useOrder();
     const { input, disabled } = useDelivery();
-    const navigate = Navigate();
+    const navigate = useNavigate();
+
+    console.log(order);
+    
     return (
-        <main className=" h-screen banner">
-            <div className="max-w-screen-xl py-20 mx-auto px-6">
+        <main className='h-[60rem] bg-[#FCF4E0]'>
+        <div className="bg-back-image h-[40rem]  bg-cover bg-center bg-[#FCF4E0] ">
+        <div className="max-w-screen-xl py-20 mx-auto px-6">
                 <Back />
                 {order.length > 0 ? (
                     <>
@@ -49,9 +53,9 @@ const PlaceOrder = () => {
                                     {/* place order button  */}
                                     <div>
                                         {disabled ? (
-                                            <button disabled="disabled" className="w-full px-6 py-3 rounded-lg bg-primary text-white poppins ring-red-300 focus:ring-4 transition duration-500 opacity-40">Place Order</button>
+                                            <button disabled="disabled" className="w-full px-6 py-3 rounded-lg btn text-white poppins ring-red-300 focus:ring-4 transition duration-500 opacity-40">Place Order</button>
                                         ) : (
-                                            <button className="w-full px-6 py-3 rounded-lg bg-primary text-white poppins ring-red-300 focus:ring-4 transition duration-500" onClick={() => {
+                                            <button className="w-full px-6 py-3 rounded-lg btn text-white poppins ring-red-300 focus:ring-4 transition duration-500" onClick={() => {
                                                 swal("Congratulations!!!", `You have order ${order.length} times successfully`, "success")
                                                 navigate('/order-successful');
                                                 setOrder([]);
@@ -70,8 +74,10 @@ const PlaceOrder = () => {
                 )
                 }
             </div>
+        </div>
+            
         </main>
     )
 }
 
-export default PlaceOrder;
+export default PlaceOrderScreen

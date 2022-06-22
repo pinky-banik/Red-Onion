@@ -21,6 +21,28 @@ const OrderCard = (props) => {
             <div className="flex items-center px-4 py-2 space-x-3">
                 <span className="text-lg text-gray-700 poppins select-none">{props.quantity} items</span>
             </div>
+           {/*  quantity 
+            <div className="flex items-center px-4 py-2 space-x-3">
+                <AiOutlineMinus
+                    onClick={() => {
+                        quantity === 1 ? setQuantity(1) : setQuantity(quantity - 1);
+                        copyObj.price = props.price * quantity
+
+                    }}
+                    className="text-2xl bg-primary w-8 h-8 rounded-full text-white hover:scale-105 transform transition duration-500 cursor-pointer p-1" />
+                <span className="text-lg text-gray-700 poppins select-none">{quantity}</span>
+                <AiOutlinePlus
+                    onClick={() => {
+                        setQuantity(quantity + 1);
+                        copyObj.quantity = quantity;
+                        // copyObj.price = copyObj.price * quantity;
+                        // console.log(props)
+
+                    }}
+                    className="text-2xl bg-primary w-8 h-8 rounded-full text-white hover:scale-105 transform transition duration-500 cursor-pointer p-1" /> 
+            </div>*/}
+
+            {/* remove button  */}
             <div className="flex flex-col items-center justify-center">
                 <AiOutlineDelete className="w-6 h-6 text-gray-600 transform transition hover:scale-105 duration-500 cursor-pointer" onClick={() => removeOrder(props.id)} />
             </div>
@@ -28,4 +50,4 @@ const OrderCard = (props) => {
     )
 }
 
-export default OrderCard;
+export default OrderCard
